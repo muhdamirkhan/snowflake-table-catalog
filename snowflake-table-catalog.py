@@ -6,11 +6,11 @@ import pandas as pd
 st.set_page_config(layout="wide")
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
+conn = st.experimental_connection('snowpark')
 
-
-@st.experimental_singleton
+@st.cache_resource
 def init_connection():
-    return snowflake.connector.connect(**st.secrets["snowflake"])
+    return st.experimental_connection('snowpark')
 
 
 conn = init_connection()
