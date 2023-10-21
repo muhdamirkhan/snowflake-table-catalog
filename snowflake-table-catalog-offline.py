@@ -118,6 +118,7 @@ if 'selectbox_database_key' not in st.session_state:
     st.session_state.selectbox_data_size_key = 60
 
 # Table Catalog/Database
+print(df)
 fv_database = df['TABLE_CATALOG'].drop_duplicates()
 fv_database = pd.concat([fv_database,all_option])
 
